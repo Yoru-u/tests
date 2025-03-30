@@ -3,67 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>invite raper</title>
+    <title>Atlantis</title>
+    <style>
+        body {
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
 </head>
 <body>
-    <h1>tuffest invite thingy</h1>
-    <form id="url-form">
-        <label for="url">invite here:</label>
-        <input type="text" id="url" required>
-        <button type="submit">rape discord</button>
-    </form>
-
-    <h2>discord after rape</h2>
-    <p id="short-url"></p>
-
-    <h3>now pmo with this:</h3>
-    <input type="text" id="generated-link" readonly>
-
-    <script>
-        // This will act as our in-memory 'database'
-        const urlMappings = {};
-
-        // Generate a random short code
-        function generateShortCode() {
-            const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-            let shortCode = "";
-            for (let i = 0; i < 6; i++) {
-                shortCode += chars.charAt(Math.floor(Math.random() * chars.length));
-            }
-            return shortCode;
-        }
-
-        // Save the URL mapping in localStorage
-        function saveURLMapping(shortCode, longUrl) {
-            urlMappings[shortCode] = longUrl;
-            localStorage.setItem("urlMappings", JSON.stringify(urlMappings));
-        }
-
-        // Handle the form submission to create the shortened URL
-        document.getElementById('url-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const longUrl = document.getElementById('url').value;
-            const shortCode = generateShortCode();
-            const shortUrl = `/${shortCode}`; // Use relative path
-
-            // Save the mapping in localStorage
-            saveURLMapping(shortCode, longUrl);
-
-            // Display the shortened URL
-            document.getElementById('short-url').textContent = `http://awp.pub${shortUrl}`;
-            document.getElementById('generated-link').value = `http://awp.pub${shortUrl}`;
-        });
-
-        // Handle routing for different short links
-        window.onload = function() {
-            // Grab the path after the domain
-            const path = window.location.pathname.substring(1); // Remove leading slash
-            const savedMappings = JSON.parse(localStorage.getItem("urlMappings")) || {};
-
-            if (savedMappings[path]) {
-                window.location.href = savedMappings[path]; // Redirect to the original URL
-            }
-        }
-    </script>
+    <img src="https://i.imgur.com/J7LvnoI.gif" alt="Centered GIF">
 </body>
 </html>
